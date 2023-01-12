@@ -1,5 +1,12 @@
+# zsh couldn't recongize "~", therefore this will only work under bash terminal
+export PATH="$PATH:~/Library/Python/3.9/bin"
 # Add Visual Studio Code (code)
 export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+# export PATH="$PATH:/usr/local/share/dotnet/dotnet"
+# export DOTNET_ROOT="/usr/local/share/dotnet/dotnet"
 
 # alias for k8s
 alias k="kubectl"
