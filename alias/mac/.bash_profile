@@ -8,6 +8,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # export PATH="$PATH:/usr/local/share/dotnet/dotnet"
 # export DOTNET_ROOT="/usr/local/share/dotnet/dotnet"
 
+# setup for go
+export GOPATH=$HOME/go
+# setup for gazelle
+export PATH=$PATH:$GOPATH/bin
+
+# setup for gazelle
+export GOBIN="$HOME/bin"
+export GOPATH="$HOME/go"
+
 # alias for k8s
 alias k="kubectl"
 alias kd="kubectl describe"
@@ -32,7 +41,12 @@ alias grc="git rebase --continue"
 alias gp="git push"
 alias gps="git push --set-upstream origin"
 
-# alias for project
-alias p="cd ~/Documents/projects/"
-alias u="cd ~/Documents/projects/unity/"
+alias b="bazel"
+alias bb="bazel build"
+alias bba="bazel build ..."
+alias br="bazel run"
+alias bg="bazel run //:gazelle update"
 
+# alias for project
+alias p="cd $HOME/Documents/projects/"
+alias u="cd $HOME/Documents/projects/unity/"
