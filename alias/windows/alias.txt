@@ -1,0 +1,4 @@
+g       = git $*
+gcm     = git checkout master
+gc      = git checkout $*
+gr      = git fetch && git rebase origin/master
