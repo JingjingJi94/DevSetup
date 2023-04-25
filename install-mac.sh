@@ -10,27 +10,35 @@ echo "start install go"
 brew install go
 go version
 
-echo "start install pyenv"
-brew install pyenv
-pyenv --version
-
-# it need to be run after install go
-# TODO: not work, seems we need to install this under bazel
+it need to be run after install go
+TODO: not work, seems we need to install this under bazel
 echo "install bazel gazelle"
 go install github.com/bazelbuild/bazel-gazelle/cmd/gazelle@latest
 
-# create evironment path on mac
-ZIPPROFILE_PATH=$HOME/.zprofile
+echo "start install pyenv"
+brew install pyenv
+# if which pyenv init > /dev/null; then eval "$(pyenv init -)"; fi
+pyenv --version
+brew install pyenv-virtualenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# # create evironment path on mac
+ZIPPROFILE_PATH=$HOME/.zshrc
 echo "start setup env for $ZIPPROFILE_PATH"
 
 cat << 'EOF' > "$ZIPPROFILE_PATH"
-source ~/.bash_profile
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+source ~/.bashrc
 EOF
 
-BASH_PROFILE_PATH=$HOME/.bash_profile
+BASH_PROFILE_PATH=$HOME/.bashrc
 echo "start setup env for $BASH_PROFILE_PATH"
 
 cat << 'EOF' > "$BASH_PROFILE_PATH"
+
 # zsh couldn't recongize "~", therefore this will only work under bash terminal
 export PATH="$PATH:~/Library/Python/3.9/bin"
 # Add Visual Studio Code (code)
@@ -40,6 +48,14 @@ export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/b
 eval "$(/opt/homebrew/bin/brew shellenv)"
 # export PATH="$PATH:/usr/local/share/dotnet/dotnet"
 # export DOTNET_ROOT="/usr/local/share/dotnet/dotnet"
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+# export PATH=$(echo $PATH | sed -e 's@:/Users/boyangtian/.pyenv/shims:@:@g')
+export PATH="$HOME/.pyenv/bin:$PATH"
 
 # setup for go
 export GOPATH=$HOME/go
@@ -56,7 +72,7 @@ alias kd="kubectl describe"
 alias ka="kubectl apply -f"
 alias kdel="kubectl delete -f"
 alias ke="kubectl exec -it"
-
+alias a="echo boyang"
 # alias for git
 alias g="git"
 alias gaa="git add -A"
@@ -75,11 +91,23 @@ alias gr="git fetch && git rebase origin/main"
 alias grc="git rebase --continue"
 alias gs="git status"
 
+# alias for bazel
 alias b="bazel"
 alias bb="bazel build"
 alias bba="bazel build ..."
 alias br="bazel run"
 alias bg="bazel run //:gazelle update"
+
+# alias for make
+alias m="make"
+alias ma="make activate"
+alias mc="make clean"
+alias md="make deactivate"
+alias mr="make run"
+
+# alias for pyenv
+alias pv="pyenv"
+alias pvs="pyenv virtualenvs"
 
 # alias for project
 alias p="cd $HOME/Documents/projects/"

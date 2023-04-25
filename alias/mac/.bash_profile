@@ -1,3 +1,9 @@
+
+# force read bashrc file
+if [ -f ~/.bashrc ]; then
+	. ~/.bashrc
+fi
+
 # zsh couldn't recongize "~", therefore this will only work under bash terminal
 export PATH="$PATH:~/Library/Python/3.9/bin"
 # Add Visual Studio Code (code)
