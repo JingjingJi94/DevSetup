@@ -10,6 +10,10 @@ echo "start install go"
 brew install go
 go version
 
+echo "start install pyenv"
+brew install pyenv
+pyenv --version
+
 # it need to be run after install go
 # TODO: not work, seems we need to install this under bazel
 echo "install bazel gazelle"
