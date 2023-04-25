@@ -72,7 +72,7 @@ alias kd="kubectl describe"
 alias ka="kubectl apply -f"
 alias kdel="kubectl delete -f"
 alias ke="kubectl exec -it"
-alias a="echo boyang"
+
 # alias for git
 alias g="git"
 alias gaa="git add -A"
