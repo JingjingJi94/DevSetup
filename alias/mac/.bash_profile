@@ -1,7 +1,8 @@
 
 # force read bashrc file
-if [ -f ~/.bashrc ]; then
-	. ~/.bashrc
+if [ -f ~/.bash_rc ]; then
+	. ~/.bash_rc
+	return
 fi
 
 # zsh couldn't recongize "~", therefore this will only work under bash terminal
