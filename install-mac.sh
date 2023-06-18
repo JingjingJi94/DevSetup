@@ -57,6 +57,9 @@ eval "$(pyenv virtualenv-init -)"
 # export PATH=$(echo $PATH | sed -e 's@:/Users/boyangtian/.pyenv/shims:@:@g')
 export PATH="$HOME/.pyenv/bin:$PATH"
 
+# install Docker
+brew install --cask docker
+
 # setup for go
 export GOPATH=$HOME/go
 # setup for gazelle
