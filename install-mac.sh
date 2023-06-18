@@ -58,7 +58,13 @@ eval "$(pyenv virtualenv-init -)"
 export PATH="$HOME/.pyenv/bin:$PATH"
 
 # install Docker
-brew install --cask docker
+if ! [ -x "$(command -v docker)" ]; then
+    echo "Docker is not installed. Installing Docker..."
+    brew install --cask docker
+    echo "Docker installation complete."
+else
+    echo "Docker is already installed."
+fi
 
 # setup for go
 export GOPATH=$HOME/go
