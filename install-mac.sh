@@ -75,6 +75,10 @@ export PATH=$PATH:$GOPATH/bin
 export GOBIN="$HOME/bin"
 export GOPATH="$HOME/go"
 
+# alias for docker
+alias d="docker"
+alias dc="docker-compose"
+
 # alias for k8s
 alias k="kubectl"
 alias kd="kubectl describe"
