@@ -78,6 +78,7 @@ export GOPATH="$HOME/go"
 # alias for docker
 alias d="docker"
 alias dc="docker-compose"
+alias dl="docker logs --tail"
 # run inside the docker container, need also provide "<id> bash"
 alias de="docker exec -it"
 
