@@ -79,6 +79,10 @@ export GOPATH="$HOME/go"
 alias d="docker"
 alias dc="docker-compose"
 alias dl="docker logs --tail"
+# delete the image by provide the tag
+alias dd="docker rmi"
+# remove all <none> docker image
+alias dr="docker image prune"
 # run inside the docker container, need also provide "<id> bash"
 alias de="docker exec -it"
 
