@@ -78,6 +78,8 @@ export GOPATH="$HOME/go"
 # alias for docker
 alias d="docker"
 alias dc="docker-compose"
+# run inside the docker container, need also provide "<id> bash"
+alias de="docker exec -it"
 
 # alias for k8s
 alias k="kubectl"
